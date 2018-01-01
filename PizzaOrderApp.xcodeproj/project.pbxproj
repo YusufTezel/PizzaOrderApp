@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0251CB9C1FF5B5D80079E343 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251CB9B1FF5B5D80079E343 /* AppDelegate.swift */; };
-		0251CB9E1FF5B5D80079E343 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251CB9D1FF5B5D80079E343 /* ViewController.swift */; };
+		0251CB9E1FF5B5D80079E343 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251CB9D1FF5B5D80079E343 /* BasketViewController.swift */; };
 		0251CBA31FF5B5D80079E343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0251CBA21FF5B5D80079E343 /* Assets.xcassets */; };
 		3D13422376BE9D374C12D23E /* Pods_PizzaOrderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84194EDA7EF665AB789403DF /* Pods_PizzaOrderApp.framework */; };
 /* End PBXBuildFile section */
@@ -16,7 +16,7 @@
 /* Begin PBXFileReference section */
 		0251CB981FF5B5D80079E343 /* PizzaOrderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaOrderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0251CB9B1FF5B5D80079E343 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		0251CB9D1FF5B5D80079E343 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		0251CB9D1FF5B5D80079E343 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		0251CBA21FF5B5D80079E343 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0251CBA71FF5B5D80079E343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		745AA83ED0A903F46464A881 /* Pods-PizzaOrderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaOrderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaOrderApp/Pods-PizzaOrderApp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -57,12 +57,28 @@
 		0251CB9A1FF5B5D80079E343 /* PizzaOrderApp */ = {
 			isa = PBXGroup;
 			children = (
+				0251CBAE1FFAC8500079E343 /* Common */,
+				0251CBAD1FFAC82A0079E343 /* BasketPage */,
 				0251CB9B1FF5B5D80079E343 /* AppDelegate.swift */,
-				0251CB9D1FF5B5D80079E343 /* ViewController.swift */,
 				0251CBA21FF5B5D80079E343 /* Assets.xcassets */,
 				0251CBA71FF5B5D80079E343 /* Info.plist */,
 			);
 			path = PizzaOrderApp;
+			sourceTree = "<group>";
+		};
+		0251CBAD1FFAC82A0079E343 /* BasketPage */ = {
+			isa = PBXGroup;
+			children = (
+				0251CB9D1FF5B5D80079E343 /* BasketViewController.swift */,
+			);
+			path = BasketPage;
+			sourceTree = "<group>";
+		};
+		0251CBAE1FFAC8500079E343 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		461A7853AA23068AD8A98E16 /* Pods */ = {
@@ -215,7 +231,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0251CB9E1FF5B5D80079E343 /* ViewController.swift in Sources */,
+				0251CB9E1FF5B5D80079E343 /* BasketViewController.swift in Sources */,
 				0251CB9C1FF5B5D80079E343 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
