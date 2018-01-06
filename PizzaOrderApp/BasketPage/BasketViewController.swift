@@ -16,12 +16,36 @@ class BasketViewController: UIViewController {
         v.backgroundColor = .red
         return v
     }()
+    
+    let amountLabel: UILabel = {
+        let l = UILabel()
+        l.text = "0,00 kr"
+        l.textColor = .white
+        l.font = l.font.withSize(40)
+        return l
+    }()
+    
+    let addButton: UIButton = {
+        let b = UIButton()
+        b.setTitle("+", for: UIControlState.normal)
+        b.setTitleColor(.white, for: UIControlState.normal)
+        b.titleLabel?.font = b.titleLabel?.font.withSize(50)
+        b.titleLabel?.text = "+"
+        return b
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(topBar)
+        topBar.addSubview(amountLabel)
+        topBar.addSubview(addButton)
         snapControlsAndViews()
+        addButton.addTarget(self, action: #selector(addButtonClicked), for: UIControlEvents.touchUpInside)
+    }
+    
+    @objc func addButtonClicked(){
+        print("add button clicked...")
     }
 }
 
@@ -36,6 +60,16 @@ extension BasketViewController{
             $0.trailing.equalToSuperview()
             let height = view.bounds.height / 6
             $0.height.equalTo(height)
+        })
+        
+        amountLabel.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview()
+        }
+        
+        addButton.snp.makeConstraints({
+            $0.bottom.equalToSuperview()
+            $0.trailing.equalTo(-15)
         })
         
     }
