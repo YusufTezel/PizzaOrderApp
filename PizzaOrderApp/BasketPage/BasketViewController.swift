@@ -17,6 +17,14 @@ class BasketViewController: UIViewController {
         return v
     }()
     
+    lazy var categoryCollectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        c.backgroundColor = .red
+        return c
+    }()
+    
     let amountLabel: UILabel = {
         let l = UILabel()
         l.text = "0,00 kr"
@@ -38,14 +46,38 @@ class BasketViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(topBar)
+        view.addSubview(categoryCollectionView)
         topBar.addSubview(amountLabel)
         topBar.addSubview(addButton)
+        
         snapControlsAndViews()
         addButton.addTarget(self, action: #selector(addButtonClicked), for: UIControlEvents.touchUpInside)
+        categoryCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "categoryCellId")
+        categoryCollectionView.dataSource = self
+        categoryCollectionView.delegate = self
     }
     
     @objc func addButtonClicked(){
         print("add button clicked...")
+        let ov = OrderViewController()
+        ov.modalPresentationStyle = .popover
+        present(ov, animated: true, completion: nil)
+    }
+}
+
+extension BasketViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCellId", for: indexPath) as! CategoryCollectionViewCell
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 70, height: 70)
     }
 }
 
@@ -54,23 +86,30 @@ extension BasketViewController{
     func snapControlsAndViews(){
         
         //topbar
-        topBar.snp.makeConstraints({
+        topBar.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
             let height = view.bounds.height / 6
             $0.height.equalTo(height)
-        })
+        }
         
         amountLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
-            $0.centerY.equalToSuperview()
+            $0.centerY.equalToSuperview().inset(15)
         }
         
-        addButton.snp.makeConstraints({
+        addButton.snp.makeConstraints {
             $0.bottom.equalToSuperview()
             $0.trailing.equalTo(-15)
-        })
+        }
+        
+        categoryCollectionView.snp.makeConstraints {
+            $0.top.equalTo(topBar.snp.bottom)
+            $0.height.equalTo((90))
+            $0.trailing.equalToSuperview()
+            $0.leading.equalToSuperview()
+        }
         
     }
 }

@@ -7,18 +7,22 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		020F67C32002967400E833C2 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020F67C22002967400E833C2 /* CategoryCollectionViewCell.swift */; };
 		0251CB9C1FF5B5D80079E343 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251CB9B1FF5B5D80079E343 /* AppDelegate.swift */; };
 		0251CB9E1FF5B5D80079E343 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251CB9D1FF5B5D80079E343 /* BasketViewController.swift */; };
 		0251CBA31FF5B5D80079E343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0251CBA21FF5B5D80079E343 /* Assets.xcassets */; };
+		0251CBB12001A0270079E343 /* OrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251CBB02001A0270079E343 /* OrderViewController.swift */; };
 		3D13422376BE9D374C12D23E /* Pods_PizzaOrderApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84194EDA7EF665AB789403DF /* Pods_PizzaOrderApp.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		020F67C22002967400E833C2 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		0251CB981FF5B5D80079E343 /* PizzaOrderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaOrderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0251CB9B1FF5B5D80079E343 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0251CB9D1FF5B5D80079E343 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
 		0251CBA21FF5B5D80079E343 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0251CBA71FF5B5D80079E343 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0251CBB02001A0270079E343 /* OrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderViewController.swift; sourceTree = "<group>"; };
 		745AA83ED0A903F46464A881 /* Pods-PizzaOrderApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaOrderApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaOrderApp/Pods-PizzaOrderApp.debug.xcconfig"; sourceTree = "<group>"; };
 		84194EDA7EF665AB789403DF /* Pods_PizzaOrderApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PizzaOrderApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3ACB98464283645E96FDE0A /* Pods-PizzaOrderApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PizzaOrderApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-PizzaOrderApp/Pods-PizzaOrderApp.release.xcconfig"; sourceTree = "<group>"; };
@@ -57,8 +61,9 @@
 		0251CB9A1FF5B5D80079E343 /* PizzaOrderApp */ = {
 			isa = PBXGroup;
 			children = (
-				0251CBAE1FFAC8500079E343 /* Common */,
 				0251CBAD1FFAC82A0079E343 /* BasketPage */,
+				0251CBAF2001A0090079E343 /* OrderPage */,
+				0251CBAE1FFAC8500079E343 /* Common */,
 				0251CB9B1FF5B5D80079E343 /* AppDelegate.swift */,
 				0251CBA21FF5B5D80079E343 /* Assets.xcassets */,
 				0251CBA71FF5B5D80079E343 /* Info.plist */,
@@ -70,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				0251CB9D1FF5B5D80079E343 /* BasketViewController.swift */,
+				020F67C22002967400E833C2 /* CategoryCollectionViewCell.swift */,
 			);
 			path = BasketPage;
 			sourceTree = "<group>";
@@ -79,6 +85,14 @@
 			children = (
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		0251CBAF2001A0090079E343 /* OrderPage */ = {
+			isa = PBXGroup;
+			children = (
+				0251CBB02001A0270079E343 /* OrderViewController.swift */,
+			);
+			path = OrderPage;
 			sourceTree = "<group>";
 		};
 		461A7853AA23068AD8A98E16 /* Pods */ = {
@@ -231,8 +245,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				020F67C32002967400E833C2 /* CategoryCollectionViewCell.swift in Sources */,
 				0251CB9E1FF5B5D80079E343 /* BasketViewController.swift in Sources */,
 				0251CB9C1FF5B5D80079E343 /* AppDelegate.swift in Sources */,
+				0251CBB12001A0270079E343 /* OrderViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
