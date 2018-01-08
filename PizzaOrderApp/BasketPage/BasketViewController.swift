@@ -73,6 +73,15 @@ extension BasketViewController: UICollectionViewDataSource, UICollectionViewDele
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCellId", for: indexPath) as! CategoryCollectionViewCell
+        if cell.categoryImage.image == nil {
+            let url = URL(string: "http://i.stack.imgur.com/WCveg.jpg")
+            DispatchQueue.global().async {
+                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
+                DispatchQueue.main.async {
+                    cell.categoryImage.image = UIImage(data: data!)
+                }
+            }
+        }
         return cell
     }
     

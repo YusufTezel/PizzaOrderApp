@@ -13,13 +13,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     let categoryImage: UIImageView = {
         let iv = UIImageView()
-        let url = URL(string: "http://i.stack.imgur.com/WCveg.jpg")
-        DispatchQueue.global().async {
-            let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-            DispatchQueue.main.async {
-                iv.image = UIImage(data: data!)
-            }
-        }
         return iv
     }()
     
