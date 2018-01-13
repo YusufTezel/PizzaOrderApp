@@ -22,6 +22,7 @@ class BasketViewController: UIViewController {
         layout.scrollDirection = .horizontal
         let c = UICollectionView(frame: .zero, collectionViewLayout: layout)
         c.backgroundColor = .red
+        c.showsHorizontalScrollIndicator = false
         return c
     }()
     
@@ -29,17 +30,8 @@ class BasketViewController: UIViewController {
         let l = UILabel()
         l.text = "0,00 kr"
         l.textColor = .white
-        l.font = l.font.withSize(40)
+        l.font = l.font.withSize(45)
         return l
-    }()
-    
-    let addButton: UIButton = {
-        let b = UIButton()
-        b.setTitle("+", for: UIControlState.normal)
-        b.setTitleColor(.white, for: UIControlState.normal)
-        b.titleLabel?.font = b.titleLabel?.font.withSize(50)
-        b.titleLabel?.text = "+"
-        return b
     }()
 
     override func viewDidLoad() {
@@ -48,20 +40,11 @@ class BasketViewController: UIViewController {
         view.addSubview(topBar)
         view.addSubview(categoryCollectionView)
         topBar.addSubview(amountLabel)
-        topBar.addSubview(addButton)
         
         snapControlsAndViews()
-        addButton.addTarget(self, action: #selector(addButtonClicked), for: UIControlEvents.touchUpInside)
         categoryCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "categoryCellId")
         categoryCollectionView.dataSource = self
         categoryCollectionView.delegate = self
-    }
-    
-    @objc func addButtonClicked(){
-        print("add button clicked...")
-        let ov = OrderViewController()
-        ov.modalPresentationStyle = .popover
-        present(ov, animated: true, completion: nil)
     }
 }
 
@@ -88,6 +71,14 @@ extension BasketViewController: UICollectionViewDataSource, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 70, height: 70)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 10
+    }
 }
 
 
@@ -99,18 +90,13 @@ extension BasketViewController{
             $0.top.equalToSuperview()
             $0.leading.equalToSuperview()
             $0.trailing.equalToSuperview()
-            let height = view.bounds.height / 6
+            let height = view.bounds.height / 8
             $0.height.equalTo(height)
         }
         
         amountLabel.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.centerY.equalToSuperview().inset(15)
-        }
-        
-        addButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview()
-            $0.trailing.equalTo(-15)
         }
         
         categoryCollectionView.snp.makeConstraints {
