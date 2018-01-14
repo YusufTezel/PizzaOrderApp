@@ -55,6 +55,7 @@ class BasketViewController: UIViewController {
         let ref = Database.database().reference()
         
         ref.child("menu").child("category").observe(.value, with: { (snapshot) -> Void in
+            self.categoryArray.removeAll(keepingCapacity: false)
             for rest in snapshot.children.allObjects as! [DataSnapshot] {
                 let value = rest.value as? NSDictionary
                 let name = value?["name"] as! String
