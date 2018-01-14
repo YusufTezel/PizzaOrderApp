@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		020F67C32002967400E833C2 /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 020F67C22002967400E833C2 /* CategoryCollectionViewCell.swift */; };
+		0217D0C0200BF8D900549E95 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0217D0BF200BF8D900549E95 /* GoogleService-Info.plist */; };
+		0217D0C3200C070400549E95 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0217D0C2200C070400549E95 /* Category.swift */; };
 		0251CB9C1FF5B5D80079E343 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251CB9B1FF5B5D80079E343 /* AppDelegate.swift */; };
 		0251CB9E1FF5B5D80079E343 /* BasketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0251CB9D1FF5B5D80079E343 /* BasketViewController.swift */; };
 		0251CBA31FF5B5D80079E343 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0251CBA21FF5B5D80079E343 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		020F67C22002967400E833C2 /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		0217D0BF200BF8D900549E95 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0217D0C2200C070400549E95 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
 		0251CB981FF5B5D80079E343 /* PizzaOrderApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PizzaOrderApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0251CB9B1FF5B5D80079E343 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0251CB9D1FF5B5D80079E343 /* BasketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasketViewController.swift; sourceTree = "<group>"; };
@@ -40,6 +44,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0217D0C1200C06F500549E95 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0217D0C2200C070400549E95 /* Category.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0251CB8F1FF5B5D80079E343 = {
 			isa = PBXGroup;
 			children = (
@@ -61,11 +73,13 @@
 		0251CB9A1FF5B5D80079E343 /* PizzaOrderApp */ = {
 			isa = PBXGroup;
 			children = (
+				0217D0C1200C06F500549E95 /* Model */,
 				0251CBAD1FFAC82A0079E343 /* BasketPage */,
 				0251CBAF2001A0090079E343 /* OrderPage */,
 				0251CBAE1FFAC8500079E343 /* Common */,
 				0251CB9B1FF5B5D80079E343 /* AppDelegate.swift */,
 				0251CBA21FF5B5D80079E343 /* Assets.xcassets */,
+				0217D0BF200BF8D900549E95 /* GoogleService-Info.plist */,
 				0251CBA71FF5B5D80079E343 /* Info.plist */,
 			);
 			path = PizzaOrderApp;
@@ -175,6 +189,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0251CBA31FF5B5D80079E343 /* Assets.xcassets in Resources */,
+				0217D0C0200BF8D900549E95 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -206,6 +221,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -213,6 +229,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -246,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				020F67C32002967400E833C2 /* CategoryCollectionViewCell.swift in Sources */,
+				0217D0C3200C070400549E95 /* Category.swift in Sources */,
 				0251CB9E1FF5B5D80079E343 /* BasketViewController.swift in Sources */,
 				0251CB9C1FF5B5D80079E343 /* AppDelegate.swift in Sources */,
 				0251CBB12001A0270079E343 /* OrderViewController.swift in Sources */,

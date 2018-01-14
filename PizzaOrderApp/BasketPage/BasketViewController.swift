@@ -8,8 +8,11 @@
 
 import UIKit
 import SnapKit
+import Firebase
 
 class BasketViewController: UIViewController {
+    
+    var categoryArray = [Category]()
     
     let topBar: UIView = {
         let v = UIView()
@@ -40,31 +43,53 @@ class BasketViewController: UIViewController {
         view.addSubview(topBar)
         view.addSubview(categoryCollectionView)
         topBar.addSubview(amountLabel)
+        initFirebase()
         
         snapControlsAndViews()
         categoryCollectionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: "categoryCellId")
         categoryCollectionView.dataSource = self
         categoryCollectionView.delegate = self
     }
+    
+    func initFirebase(){
+        let ref = Database.database().reference()
+        
+        ref.child("menu").child("category").observe(.value, with: { (snapshot) -> Void in
+            for rest in snapshot.children.allObjects as! [DataSnapshot] {
+                let value = rest.value as? NSDictionary
+                let name = value?["name"] as! String
+                let priority = value?["priority"] as! Int
+                let imageUrl = value?["imageUrl"] as! String
+                
+                guard let url = URL(string: imageUrl) else { return }
+                
+                URLSession.shared.dataTask(with: url) { (data, response, error) in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                    }
+                    guard let data = data else { return }
+                    self.categoryArray.append(Category(name: name, priority: priority, data: data))
+                    self.categoryArray = self.categoryArray.sorted(by: { $0.priority < $1.priority })
+                    DispatchQueue.main.async(execute: {
+                        self.categoryCollectionView.reloadData()
+                    })
+                }.resume()
+            }
+        })
+        
+        
+    }
 }
 
 extension BasketViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return categoryArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "categoryCellId", for: indexPath) as! CategoryCollectionViewCell
-        if cell.categoryImage.image == nil {
-            let url = URL(string: "http://i.stack.imgur.com/WCveg.jpg")
-            DispatchQueue.global().async {
-                let data = try? Data(contentsOf: url!) //make sure your image in this url does exist, otherwise unwrap in a if let check / try-catch
-                DispatchQueue.main.async {
-                    cell.categoryImage.image = UIImage(data: data!)
-                }
-            }
-        }
+        cell.categoryImage.image = UIImage(data: categoryArray[indexPath.row].data!)
         return cell
     }
     
@@ -77,7 +102,7 @@ extension BasketViewController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 5
     }
 }
 

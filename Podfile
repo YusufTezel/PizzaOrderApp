@@ -7,6 +7,8 @@ target 'PizzaOrderApp' do
 
   # Pods for PizzaOrderApp
   pod 'Firebase/Core'
-  pod 'Firebase/Auth'  
+  pod 'Firebase/Auth'
+  pod 'Firebase/Database'
+  pod 'Firebase/Storage'
   pod 'SnapKit', '~> 4.0'
 end
