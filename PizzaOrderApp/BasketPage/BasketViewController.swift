@@ -76,8 +76,6 @@ class BasketViewController: UIViewController {
                 }.resume()
             }
         })
-        
-        
     }
 }
 
